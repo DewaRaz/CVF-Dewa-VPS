@@ -8,35 +8,12 @@
 </head>
 <body>
     <header>
-        <div id="table-name">Nama Pemilik Web</div>
-        <button id="settings-button">⚙️</button>
-        <div id="settings-panel" class="hidden">
-            <label for="table-name-input">Table Name:</label>
-            <input type="text" id="table-name-input" value="Nama Pemilik Web">
-            <label for="button-color">Button Color:</label>
-            <input type="color" id="button-color" value="#ff0000">
-            <label for="text-color">Text Color:</label>
-            <input type="color" id="text-color" value="#ffffff">
-            <button id="save-settings">Save</button>
-        </div>
+        <div id="table-name">Convert Farm 6 Mode</div>
     </header>
     <main>
-        <div id="table-wrapper" class="led-effect">
+        <div id="table-wrapper">
             <table id="main-table">
                 <tr>
-                    <td>
-                        <div class="form-section">
-                            <button id="toggle-custom">Aktifkan/Matikan Custom</button>
-                            <div id="extra-inputs" class="hidden">
-                                <label for="prefix">Custom Prefix:</label>
-                                <input type="text" id="prefix" placeholder="Masukkan custom prefix">
-                                <label for="suffix">Custom Suffix:</label>
-                                <input type="text" id="suffix" placeholder="Masukkan custom suffix">
-                                <label for="separator">Custom Separator:</label>
-                                <input type="text" id="separator" placeholder="Masukkan custom separator">
-                            </div>
-                        </div>
-                    </td>
                     <td>
                         <div class="form-section">
                             <label for="format">Pilih Format:</label>
@@ -50,24 +27,33 @@
                             </select>
                         </div>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <div class="form-section">
                             <label for="farm-list">Masukkan List Farm:</label>
-                            <textarea id="farm-list" rows="10" placeholder="Masukkan list farm di sini"></textarea>
-                            <div id="extra-inputs-dirt-plant" class="hidden">
-                                <label for="id-door">ID Door:</label>
-                                <input type="text" id="id-door" placeholder="Masukkan ID Door">
-                                <label for="item-id" class="hidden">Item ID:</label>
-                                <input type="text" id="item-id" class="hidden" placeholder="Masukkan Item ID">
+                            <textarea id="farm-list" rows="5" placeholder="Masukkan list farm di sini"></textarea>
+                            <div id="extra-inputs-dirt" class="hidden">
+                                <label for="id-door-dirt">ID Door:</label>
+                                <input type="text" id="id-door-dirt" placeholder="Masukkan ID Door">
+                            </div>
+                            <div id="extra-inputs-plant" class="hidden">
+                                <label for="id-door-plant">ID Door:</label>
+                                <input type="text" id="id-door-plant" placeholder="Masukkan ID Door">
+                                <label for="item-id-plant">Item ID:</label>
+                                <input type="text" id="item-id-plant" placeholder="Masukkan Item ID">
                             </div>
                         </div>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <div class="form-section">
                             <button id="convert-button">Convert</button>
                             <label for="result">Hasil:</label>
-                            <textarea id="result" rows="10" readonly></textarea>
+                            <textarea id="result" rows="5" readonly></textarea>
                             <button id="copy-button">Salin</button>
+                            <button id="discord-button">Discord Dewa VPS</button>
                         </div>
                     </td>
                 </tr>
