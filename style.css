@@ -8,6 +8,7 @@
     --textarea-background: #444; /* Dark Gray */
     --textarea-border: #555; /* Gray */
     --shadow-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    --led-effect-color: rgba(0, 255, 255, 0.5); /* Cyan */
 }
 
 body {
@@ -42,18 +43,19 @@ header {
     cursor: pointer;
     border-radius: 5px;
     position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #settings-panel {
-    background-color: var(--table-background);
-    padding: 10px;
-    border-radius: 5px;
     position: absolute;
-    top: 50px;
+    top: 40px;
     right: 10px;
     z-index: 1;
+    background-color: var(--table-background);
+    padding: 10px;
+    border: 1px solid var(--table-border);
     box-shadow: 0 0 10px var(--shadow-color);
+    display: none;
 }
 
 .hidden {
@@ -62,26 +64,47 @@ header {
 
 main {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+td {
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid var(--table-border);
+    border-bottom: 1px solid var(--table-border);
+}
+
+td:last-child {
+    border-right: none;
 }
 
 .form-section {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
     margin-bottom: 20px;
     position: relative;
 }
 
 label {
     margin-bottom: 5px;
+    color: var(--text-color);
 }
 
-textarea, select, input[type="text"] {
-    width: 100%;
+textarea, select, input[type="text"], input[type="color"] {
+    width: calc(100% - 20px);
     background-color: var(--textarea-background);
     border: 1px solid var(--textarea-border);
     color: var(--text-color);
@@ -91,7 +114,12 @@ textarea, select, input[type="text"] {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#convert-button, #copy-button, #toggle-custom, #save-settings {
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
     background-color: var(--button-color);
     color: var(--text-color);
     border: none;
@@ -103,11 +131,8 @@ textarea, select, input[type="text"] {
     position: relative;
 }
 
-#extra-inputs {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
+button:active {
+    transform: translateY(1px);
 }
 
 footer {
@@ -116,26 +141,8 @@ footer {
     background-color: var(--header-background);
     width: 100%;
     text-align: center;
-}
-
-.led-effect {
-    position: absolute;
-    border: 2px solid transparent;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
-    animation: led-effect 2s infinite;
-}
-
-@keyframes led-effect {
-    0% {
-        box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5);
-    }
-    100% {
-        box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
-    }
+    position: fixed;
+    bottom: 0;
 }
 
 #settings-panel.led-effect,
@@ -145,8 +152,17 @@ footer {
 #farm-list.led-effect,
 #extra-inputs-dirt-plant.led-effect,
 #result.led-effect {
-    border: 2px solid transparent;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
     animation: led-effect 2s infinite;
+}
+
+@keyframes led-effect {
+    0% {
+        box-shadow: 0 0 10px 5px var(--led-effect-color);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px var(--led-effect-color);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px var(--led-effect-color);
+    }
 }
