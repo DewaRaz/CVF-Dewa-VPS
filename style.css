@@ -1,15 +1,22 @@
+/* Root variables */
 :root {
-    --button-color: #ff0000; /* Red */
+    --button-color: #ff3333; /* Red with reduced brightness */
+    --button-text-color: #ffffff; /* White */
+    --button-text-shadow-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for text shadow */
+    --button-led-effect-color: rgba(255, 0, 0, 0.8); /* Brighter red for LED effect */
+    --button-led-border-color: rgba(255, 0, 0, 1); /* Brightest red for LED effect border */
+
     --text-color: #ffffff;   /* White */
-    --background-color: #282c34; /* Dark Gray */
-    --header-background: #21252b; /* Darker Gray */
-    --table-background: #333; /* Dark Gray */
-    --table-border: #444; /* Gray */
-    --textarea-background: #444; /* Dark Gray */
-    --textarea-border: #555; /* Gray */
-    --led-effect-color: rgba(255, 0, 0, 0.8); /* Red LED effect */
+    --background-color: #0d1117; /* GitHub Dark Background */
+    --header-background: #161b22; /* GitHub Darker Background */
+    --table-background: #21262d; /* GitHub Table Background */
+    --table-border: #30363d; /* GitHub Border */
+    --textarea-background: #21262d; /* GitHub Textarea Background */
+    --textarea-border: #30363d; /* GitHub Textarea Border */
+    --led-effect-color: rgba(255, 0, 0, 0.6); /* Red LED effect with reduced opacity */
 }
 
+/* Body styles */
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -17,58 +24,45 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
 }
 
+/* Header styles */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     padding: 10px;
     background-color: var(--header-background);
     position: relative;
-    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+    text-align: center;
+    box-shadow: 0 0 20px var(--led-effect-color); /* Initial LED effect */
 }
 
-#settings-button {
-    background-color: var(--button-color);
-    color: var(--text-color);
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    position: relative;
-    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
-}
-
-#settings-panel {
-    position: absolute;
-    top: 40px;
-    right: 10px;
-    z-index: 1;
-    background-color: var(--table-background);
-    padding: 10px;
-    border: 1px solid var(--table-border);
-    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-
+/* Main styles */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin-top: 20px;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
+/* Table wrapper styles */
+#table-wrapper {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative; /* Position relative for watermark */
+}
+
+/* Table styles */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -76,65 +70,117 @@ table {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
+    box-shadow: 0 0 20px var(--led-effect-color); /* Initial LED effect */
+    animation: rgb-blink-background 4s infinite; /* Apply animation to background */
 }
 
+/* Keyframes for background LED effect */
+@keyframes rgb-blink-background {
+    0%, 50%, 100% {
+        box-shadow: 0 0 40px var(--led-effect-color); /* Increased LED effect */
+    }
+    25%, 75% {
+        box-shadow: 0 0 20px var(--led-effect-color); /* Decreased LED effect */
+    }
+}
+
+/* Table cell styles */
 td {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    border-right: 1px solid var(--table-border);
     border-bottom: 1px solid var(--table-border);
 }
 
+/* Remove border for last table cell */
 td:last-child {
     border-right: none;
 }
 
+/* Form section styles */
 .form-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    width: 100%; /* Adjusted to fit the form within the container */
+    margin-bottom: 10px;
     position: relative;
 }
 
+/* Label styles */
 label {
     margin-bottom: 5px;
     color: var(--text-color);
 }
 
-textarea, select, input[type="text"], input[type="color"] {
-    width: calc(100% - 20px);
+/* Textarea, select, input styles */
+textarea, select, input[type="text"] {
+    width: calc(100% - 20px); /* Adjusted to fit within the form section */
     background-color: var(--textarea-background);
     border: 1px solid var(--textarea-border);
     color: var(--text-color);
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Sharpened shadow */
 }
 
+/* Textarea specific styles */
 textarea {
-    min-height: 100px;
+    min-height: 80px;
     resize: vertical;
 }
 
+/* Button styles */
 button {
     background-color: var(--button-color);
-    color: var(--text-color);
+    color: var(--button-text-color);
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased button padding */
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
     position: relative;
+    overflow: hidden; /* Ensure overflow is hidden */
+    box-shadow: 0 0 20px var(--button-led-border-color); /* Initial LED effect */
 }
 
+/* Button active state styles */
 button:active {
     transform: translateY(1px);
 }
 
+/* Button LED effect styles */
+button::before {
+    content: "";
+    position: absolute;
+    top: -50%; /* Adjust position for centering */
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: var(--button-led-effect-color);
+    box-shadow: 0 0 20px var(--button-led-effect-color);
+    border-radius: 50%;
+    z-index: -1; /* Move behind button content */
+    animation: rgb-blink 4s infinite;
+}
+
+/* Keyframes for button LED effect */
+@keyframes rgb-blink {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8; /* Adjust opacity if needed */
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0.8; /* Back to initial opacity */
+    }
+}
+
+/* Footer styles */
 footer {
     margin-top: auto;
     padding: 10px;
@@ -145,18 +191,18 @@ footer {
     bottom: 0;
 }
 
-.led-effect {
-    animation: led-effect 2s infinite;
+/* Hidden class */
+.hidden {
+    display: none;
 }
 
-@keyframes led-effect {
-    0% {
-        box-shadow: 0 0 10px 5px var(--led-effect-color);
-    }
-    50% {
-        box-shadow: 0 0 20px 10px var(--led-effect-color);
-    }
-    100% {
-        box-shadow: 0 0 10px 5px var(--led-effect-color);
-    }
+/* Watermark styles */
+.watermark {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    font-size: 12px;
+    z-index: 999; /* Ensure it's above other content */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Red LED effect */
 }
