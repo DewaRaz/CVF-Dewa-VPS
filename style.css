@@ -7,8 +7,7 @@
     --table-border: #444; /* Gray */
     --textarea-background: #444; /* Dark Gray */
     --textarea-border: #555; /* Gray */
-    --shadow-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
-    --led-effect-color: rgba(0, 255, 255, 0.5); /* Cyan */
+    --led-effect-color: rgba(255, 0, 0, 0.8); /* Red LED effect */
 }
 
 body {
@@ -32,7 +31,7 @@ header {
     padding: 10px;
     background-color: var(--header-background);
     position: relative;
-    box-shadow: 0 0 10px var(--shadow-color);
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
 }
 
 #settings-button {
@@ -43,7 +42,7 @@ header {
     cursor: pointer;
     border-radius: 5px;
     position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
 }
 
 #settings-panel {
@@ -54,7 +53,7 @@ header {
     background-color: var(--table-background);
     padding: 10px;
     border: 1px solid var(--table-border);
-    box-shadow: 0 0 10px var(--shadow-color);
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
     display: none;
 }
 
@@ -77,6 +76,7 @@ table {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
 }
 
 td {
@@ -127,7 +127,7 @@ button {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 0 5px var(--shadow-color);
+    box-shadow: 0 0 10px var(--led-effect-color); /* LED effect */
     position: relative;
 }
 
@@ -145,13 +145,7 @@ footer {
     bottom: 0;
 }
 
-#settings-panel.led-effect,
-#convert-button.led-effect,
-#copy-button.led-effect,
-#toggle-custom.led-effect,
-#farm-list.led-effect,
-#extra-inputs-dirt-plant.led-effect,
-#result.led-effect {
+.led-effect {
     animation: led-effect 2s infinite;
 }
 
