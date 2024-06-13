@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableName = document.getElementById('table-name');
     const buttonColor = document.getElementById('button-color');
     const textColor = document.getElementById('text-color');
-    
+
     toggleCustomButton.addEventListener('click', () => {
         extraInputs.classList.toggle('hidden');
+        extraInputsDirtPlant.classList.toggle('hidden');
     });
 
     formatSelect.addEventListener('change', () => {
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     saveSettingsButton.addEventListener('click', () => {
-        document.querySelector('header > div').textContent = tableName.value;
+        document.querySelector('#table-name').textContent = tableName.value;
         document.documentElement.style.setProperty('--button-color', buttonColor.value);
         document.documentElement.style.setProperty('--text-color', textColor.value);
         settingsPanel.classList.add('hidden');
