@@ -1,0 +1,152 @@
+:root {
+    --button-color: #ff0000; /* Red */
+    --text-color: #ffffff;   /* White */
+    --background-color: #282c34; /* Dark Gray */
+    --header-background: #21252b; /* Darker Gray */
+    --table-background: #333; /* Dark Gray */
+    --table-border: #444; /* Gray */
+    --textarea-background: #444; /* Dark Gray */
+    --textarea-border: #555; /* Gray */
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--header-background);
+    position: relative;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+#settings-button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#settings-panel {
+    background-color: var(--table-background);
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 1;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.hidden {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+textarea, select, input[type="text"] {
+    width: 100%;
+    background-color: var(--textarea-background);
+    border: 1px solid var(--textarea-border);
+    color: var(--text-color);
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#convert-button, #copy-button, #toggle-custom, #save-settings {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px var(--shadow-color);
+    position: relative;
+}
+
+#extra-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: var(--header-background);
+    width: 100%;
+    text-align: center;
+}
+
+.led-effect {
+    position: absolute;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+    animation: led-effect 2s infinite;
+}
+
+@keyframes led-effect {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+    }
+}
+
+#settings-panel.led-effect,
+#convert-button.led-effect,
+#copy-button.led-effect,
+#toggle-custom.led-effect,
+#farm-list.led-effect,
+#extra-inputs-dirt-plant.led-effect,
+#result.led-effect {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px rgba(0, 255, 255, 0.5);
+    animation: led-effect 2s infinite;
+}
