@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 result = list.map(item => `${item}|${idDoorInputDirt.value}`).join('\n');
                 break;
             case 'plant1':
-                result = list.map(item => `"${item}|${idDoorInputPlant.value}|${itemIdInputPlant.value}"`).join(',\n');
+                result = list.map(item => `"${item}:${idDoorInputPlant.value}:${itemIdInputPlant.value}"`).join(',\n');
                 break;
             case 'plant2':
-                result = list.map(item => `${item}|${idDoorInputPlant.value}|${itemIdInputPlant.value}`).join('\n');
+                result = list.map(item => `${item}:${idDoorInputPlant.value}:${itemIdInputPlant.value}`).join('\n');
                 break;
         }
 
